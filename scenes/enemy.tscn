@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chumbgae80clv"]
+[gd_scene load_steps=8 format=3 uid="uid://dsmra2058v2et"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fe2un"]
 [ext_resource type="Texture2D" uid="uid://b2ne6kgh316is" path="res://Assets/Sprites/enemyFlyingAlt_1.png" id="1_v3rf0"]

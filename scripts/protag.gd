@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 
-func ready():
-	globalScript.set("player", self)
+#func ready():
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -11,6 +10,4 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	globalScript.set("player", self)
 	move_and_slide()
-
