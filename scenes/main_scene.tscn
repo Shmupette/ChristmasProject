@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c18n1w0ax0apu"]
+[gd_scene load_steps=6 format=3 uid="uid://c18n1w0ax0apu"]
 
-[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_dy23h"]
 [ext_resource type="Texture2D" uid="uid://c1ouiv0aluvwv" path="res://tiles/kenney_pixel-shmup/Tilemap/tiles_packed.png" id="1_vdryw"]
-[ext_resource type="PackedScene" uid="uid://uknk0nfb6aeg" path="res://scenes/protag.tscn" id="2_mk0qb"]
+[ext_resource type="PackedScene" uid="uid://chenpg115a680" path="res://scenes/protag.tscn" id="2_mk0qb"]
 [ext_resource type="PackedScene" uid="uid://dsmra2058v2et" path="res://scenes/enemy.tscn" id="4_kj1wu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly7au"]
@@ -382,7 +381,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ly7au")
 
 [node name="MainScene" type="Node"]
-script = ExtResource("1_dy23h")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k6amp")
