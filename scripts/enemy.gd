@@ -1,7 +1,7 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 var protag = null
-var movementSpeed = 500
+var movementSpeed = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +11,9 @@ func _ready():
 func _physics_process(delta):
 	look_at(protag.position)
 	position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
-	
 
-	
 func _process(delta):
 	pass
-	
+
 func setPlayer(protag):
 	self.protag = protag
