@@ -2,6 +2,7 @@ extends Node
 
 const ENEMY = preload("res://scenes/enemy.tscn")
 const PROTAG = preload("res://scenes/protag.tscn")
+const HUD = preload("res://scenes/HUD.tscn")
 @onready var mob_spawn_timer = $mobSpawnTimer
 @onready var mob_spawn_path = $mobSpawnPath
 var player = null
