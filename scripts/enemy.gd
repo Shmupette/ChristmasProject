@@ -2,7 +2,8 @@ extends Area2D
 class_name  Enemy
 @onready var attacktimer = $attacktimer
 var protag = null
-var movementSpeed = 500
+var movementSpeed = 50
+var health = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,5 +25,11 @@ func _process(delta):
 
 func setPlayer(protag):
 	self.protag = protag
+
+func takeDamage(damage):
+	health -= damage
+	print(health)
+	if health <= 0:
+		queue_free()
 
 
