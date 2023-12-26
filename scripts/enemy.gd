@@ -1,7 +1,7 @@
-extends CharacterBody2D
+extends Area2D
 class_name  Enemy
 var protag = null
-var movementSpeed = 50
+var movementSpeed = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +10,8 @@ func _ready():
 
 func _physics_process(delta):
 	look_at(protag.position)
-	position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
+	if position.distance_to(protag.position) > 50:
+		position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
 
 func _process(delta):
 	pass

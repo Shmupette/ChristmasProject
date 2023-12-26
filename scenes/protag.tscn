@@ -18,3 +18,5 @@ shape = SubResource("RectangleShape2D_6tlnx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.375, 2.375)
+
+[node name="WeaponPivot" type="Node2D" parent="."]
