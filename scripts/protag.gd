@@ -6,7 +6,7 @@ extends CharacterBody2D
 const HUD = preload("res://scenes/HUD.tscn")
 var hud = null
 const WEAPON = preload("res://scenes/weapon.tscn")
-@onready var weapon_pivot = $WeaponPivot
+@onready var weapon_pivot = $weaponPivot
 
 func _ready():
 	hud = HUD.instantiate()
@@ -28,8 +28,12 @@ func _input(event):
 		health -= 1
 		print("HEALTH:",health)
 
+func takeDamage(damage):
+	health -= damage
+	
 func giveWeapon():
 	var weapon = WEAPON.instantiate()
 	weapon.setPlayer(self)
 	weapon.position = Vector2(0, 40)
 	weapon_pivot.add_child(weapon)
+

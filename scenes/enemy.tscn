@@ -36,6 +36,7 @@ radius = 36.0
 height = 72.0
 
 [node name="Mob" type="Area2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_fe2un")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -46,3 +47,9 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)
 shape = SubResource("CapsuleShape2D_a15jk")
+
+[node name="attacktimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
