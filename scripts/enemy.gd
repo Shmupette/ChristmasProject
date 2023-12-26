@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name  Enemy
 var protag = null
 var movementSpeed = 50
 
