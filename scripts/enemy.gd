@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var protag = null
-var movementSpeed = 50
+var movementSpeed = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +12,7 @@ func _physics_process(delta):
 	look_at(protag.position)
 	position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
 	
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+
 	
 func _process(delta):
 	pass
