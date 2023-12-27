@@ -1,24 +1,30 @@
 extends Area2D
-class_name  Enemy
+class_name Enemy
+
 @onready var attacktimer = $attacktimer
+@onready var animation_player = $Sprite2D/AnimationPlayer
+
 var protag = null
 var movementSpeed = 50
 var health = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	var mob_types = $AnimatedSprite2D.sprite_frames.get_animation_names()
-	$AnimatedSprite2D.play(mob_types[randi() % mob_types.size()])
+	animation_player.play("moving")
 
 func _physics_process(delta):
-	look_at(protag.position)
-	if position.distance_to(protag.position) > 20:
-		position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
-	elif attacktimer.is_stopped():
-		attacktimer.start()
-		protag.takeDamage(1)
-
+	if attacktimer.is_stopped() == false:
+		movementSpeed = 0
+	else:
+		if position.distance_to(protag.position) < 4:
+			attacktimer.start()
+			animation_player.play("attack")
+			protag.takeDamage(1)
+		else:
+			movementSpeed = 10
+			animation_player.play("moving")
+			look_at(protag.position)
+			position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
 
 func _process(delta):
 	pass

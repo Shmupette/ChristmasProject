@@ -1,22 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://chenpg115a680"]
+[gd_scene load_steps=8 format=3 uid="uid://chenpg115a680"]
 
 [ext_resource type="Script" path="res://scripts/protag.gd" id="1_mj6ee"]
 [ext_resource type="Texture2D" uid="uid://btpdxfylp1l4j" path="res://sprites/protag.png" id="2_fvst4"]
 
+[sub_resource type="Animation" id="Animation_oy517"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dw5b0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qlmc8"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_22gw1"]
+_data = {
+"RESET": SubResource("Animation_dw5b0"),
+"idle": SubResource("Animation_oy517"),
+"run": SubResource("Animation_qlmc8")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tlnx"]
-size = Vector2(18, 24)
+size = Vector2(5.5, 6)
 
 [node name="Protag" type="CharacterBody2D"]
 script = ExtResource("1_mj6ee")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_fvst4")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_22gw1")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6tlnx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.375, 2.375)
+zoom = Vector2(20, 20)
 
 [node name="weaponPivot" type="Node2D" parent="."]

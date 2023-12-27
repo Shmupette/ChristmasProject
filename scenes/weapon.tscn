@@ -8,7 +8,6 @@ radius = 4.0
 height = 18.0
 
 [node name="Weapon" type="Area2D"]
-scale = Vector2(5, 5)
 script = ExtResource("1_oxhle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
