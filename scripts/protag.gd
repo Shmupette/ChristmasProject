@@ -14,6 +14,7 @@ func _ready():
 	hud = HUD.instantiate()
 	hud.setPlayer(self)
 	add_child(hud)
+	giveWeapon()
 		
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -41,6 +42,6 @@ func takeDamage(damage):
 func giveWeapon():
 	var weapon = WEAPON.instantiate()
 	weapon.setPlayer(self)
-	weapon.position = Vector2(0, 40)
+	weapon.position = Vector2(0, 10)
 	weapon_pivot.add_child(weapon)
 
