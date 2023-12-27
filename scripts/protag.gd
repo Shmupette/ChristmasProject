@@ -10,6 +10,7 @@ var speed = 40
 var health = 100
 var hud = null
 var knoifes = []
+var orbitAngleOffset = 0
 
 func _ready():
 	hud = HUD.instantiate()
@@ -29,6 +30,8 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	weapon_pivot.rotate(0.05)
+	orbitAngleOffset += 2 * PI * delta / float(360)
+	orbitAngleOffset = wrapf(orbitAngleOffset, -PI, PI)
 
 func _input(event):
 	if event.is_action_pressed("left"):
@@ -51,10 +54,10 @@ func giveKnoife():
 	updateKnoifes()
 	
 func updateKnoifes():
-	var offset = 360 / knoifes.size()
-	var currentOffset = 0
+	var spacing = 2 * PI / float(knoifes.size())
+	var radius = 10
+	var index = 0
 	for knoife in knoifes:
-		print(currentOffset)
-		knoife.position = Vector2(sin(currentOffset) * 20, cos(currentOffset) * 20)
-		currentOffset += offset
+		index += 1
+		knoife.position = Vector2(cos(spacing * index + orbitAngleOffset) * radius, sin(spacing * index + orbitAngleOffset) * radius)
 

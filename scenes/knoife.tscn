@@ -41,8 +41,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nynf1"]
-radius = 3.0
-height = 10.0
+radius = 2.98507
+height = 5.97015
 
 [node name="Knoife" type="Area2D"]
 scale = Vector2(0.335, 0.335)
@@ -51,7 +51,6 @@ script = ExtResource("1_bt8tm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_4b8yf")
-flip_v = true
 hframes = 4
 vframes = 4
 

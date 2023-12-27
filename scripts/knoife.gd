@@ -9,6 +9,7 @@ func setPlayer(player):
 	self.player = player
 
 func _process(delta):
+	look_at(player.position)
 	if attackRate.is_stopped():
 		for area in self.get_overlapping_areas():
 			if area is Enemy:
