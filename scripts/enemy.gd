@@ -5,11 +5,12 @@ class_name Enemy
 @onready var animation_player = $Sprite2D/AnimationPlayer
 
 var protag = null
-var movementSpeed = 10
+var movementSpeed = 500
 var health = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("enemy")
 	animation_player.play("moving")
 
 func _physics_process(delta):
@@ -21,7 +22,7 @@ func _physics_process(delta):
 			animation_player.play("attack")
 			protag.takeDamage(1)
 		else:
-			movementSpeed = 10
+			movementSpeed = 50
 			animation_player.play("moving")
 			look_at(protag.position)
 			position = position.move_toward(Vector2(protag.position), delta * movementSpeed)
