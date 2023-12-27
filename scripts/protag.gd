@@ -29,9 +29,14 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
-	weapon_pivot.rotate(0.05)
+	
+func _process(delta):
+	weapon_pivot.rotate(0.02)
 	orbitAngleOffset += 2 * PI * delta / float(360)
 	orbitAngleOffset = wrapf(orbitAngleOffset, -PI, PI)
+	if knoifes.size() > 0:
+		updateKnoifes()
+	
 
 func _input(event):
 	if event.is_action_pressed("left"):
@@ -54,10 +59,16 @@ func giveKnoife():
 	updateKnoifes()
 	
 func updateKnoifes():
+	var freshKnoifes = []
+	for knoife in knoifes:
+		if knoife != null:
+			freshKnoifes.append(knoife)
+	knoifes = freshKnoifes
+	#TODO: move this to knoife
 	var spacing = 2 * PI / float(knoifes.size())
 	var radius = 10
 	var index = 0
 	for knoife in knoifes:
 		index += 1
-		knoife.position = Vector2(cos(spacing * index + orbitAngleOffset) * radius, sin(spacing * index + orbitAngleOffset) * radius)
+		knoife.setTargetPosition(Vector2(cos(spacing * index + orbitAngleOffset) * radius, sin(spacing * index + orbitAngleOffset) * radius))
 

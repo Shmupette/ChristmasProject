@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chenpg115a680"]
+[gd_scene load_steps=9 format=3 uid="uid://chenpg115a680"]
 
 [ext_resource type="Script" path="res://scripts/protag.gd" id="1_mj6ee"]
 [ext_resource type="Texture2D" uid="uid://btpdxfylp1l4j" path="res://sprites/protag.png" id="2_fvst4"]
@@ -63,6 +63,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tlnx"]
 size = Vector2(5.5, 6)
 
+[sub_resource type="Curve2D" id="Curve2D_biole"]
+
 [node name="Protag" type="CharacterBody2D"]
 script = ExtResource("1_mj6ee")
 
@@ -85,3 +87,6 @@ shape = SubResource("RectangleShape2D_6tlnx")
 zoom = Vector2(20, 20)
 
 [node name="weaponPivot" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_biole")

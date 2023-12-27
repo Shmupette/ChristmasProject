@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://7j6m4nyc64ok"]
+[gd_scene load_steps=8 format=3 uid="uid://7j6m4nyc64ok"]
 
 [ext_resource type="Script" path="res://scripts/knoife.gd" id="1_bt8tm"]
 [ext_resource type="Texture2D" uid="uid://bislyu2mp2ql6" path="res://sprites/knoife.png" id="2_4b8yf"]
@@ -34,10 +34,27 @@ tracks/0/keys = {
 "values": [4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_1554b"]
+resource_name = "spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kp5c"]
 _data = {
 "RESET": SubResource("Animation_1ew8m"),
-"attack": SubResource("Animation_bmq42")
+"attack": SubResource("Animation_bmq42"),
+"spawn": SubResource("Animation_1554b")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nynf1"]
@@ -63,6 +80,6 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nynf1")
 
-[node name="attackRate" type="Timer" parent="."]
+[node name="attack" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
