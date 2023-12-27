@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://blm47meykdo8v"]
+[gd_scene load_steps=4 format=3 uid="uid://7j6m4nyc64ok"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_oxhle"]
 [ext_resource type="Texture2D" uid="uid://vrhwoemk6bxj" path="res://sprites/sword.png" id="2_yotd1"]
@@ -15,10 +15,3 @@ texture = ExtResource("2_yotd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nynf1")
-
-[node name="attackRate" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
