@@ -1,9 +1,13 @@
 extends Node2D
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var attackTimer = $attackTimer
+@onready var animation_player = $Sprite2D/AnimationPlayer
+@onready var right = $Right
+@onready var left = $Left
 
 var damage = 1
-var turrentRange = 500
+var turrentRange = 5000000000
+var turrentNum = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,10 +18,19 @@ func _ready():
 func _process(delta):
 	if attackTimer.is_stopped() and targetFinder() != null:
 		attackTimer.start()
+		animation_player.play("attack")
 		var bullet: Node2D = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet)
-		bullet.global_position = global_position
 		bullet.target = targetFinder()
+		if turrentNum == 0:
+			bullet.global_position = Vector2(left.global_position)
+			turrentNum = 1
+			animation_player.play("Left")
+		else:
+			bullet.global_position = Vector2(right.global_position)
+			turrentNum = 0
+			animation_player.play("Right")
+			
 	pass
 
 func _physics_process(delta):

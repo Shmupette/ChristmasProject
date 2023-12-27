@@ -5,7 +5,7 @@ class_name Enemy
 @onready var animation_player = $Sprite2D/AnimationPlayer
 
 var protag = null
-var movementSpeed = 500
+var movementSpeed = 50
 var health = 10
 
 # Called when the node enters the scene tree for the first time.
