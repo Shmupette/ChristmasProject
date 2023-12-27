@@ -32,7 +32,6 @@ func setPlayer(protag):
 
 func takeDamage(damage):
 	health -= damage
-	print(health)
 	if health <= 0:
 		queue_free()
 

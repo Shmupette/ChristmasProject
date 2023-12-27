@@ -18,5 +18,3 @@ func _process(delta):
 	
 	if !animation_player.is_playing():
 		animation_player.play("RESET")
-
-

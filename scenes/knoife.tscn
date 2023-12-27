@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://7j6m4nyc64ok"]
 
-[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_oxhle"]
-[ext_resource type="Texture2D" uid="uid://bislyu2mp2ql6" path="res://sprites/knoife.png" id="2_6jwhb"]
+[ext_resource type="Script" path="res://scripts/knoife.gd" id="1_bt8tm"]
+[ext_resource type="Texture2D" uid="uid://bislyu2mp2ql6" path="res://sprites/knoife.png" id="2_4b8yf"]
 
 [sub_resource type="Animation" id="Animation_1ew8m"]
 length = 0.001
@@ -44,13 +44,13 @@ _data = {
 radius = 3.0
 height = 10.0
 
-[node name="Weapon" type="Area2D"]
+[node name="Knoife" type="Area2D"]
 scale = Vector2(0.335, 0.335)
-script = ExtResource("1_oxhle")
+script = ExtResource("1_bt8tm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_6jwhb")
+texture = ExtResource("2_4b8yf")
 flip_v = true
 hframes = 4
 vframes = 4
