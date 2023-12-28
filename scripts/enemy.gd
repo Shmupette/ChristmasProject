@@ -1,6 +1,6 @@
 extends Area2D
 class_name Enemy
-
+const XP_GEM = preload("res://scenes/XPGem.tscn")
 @onready var attacktimer = $attacktimer
 @onready var animation_player = $Sprite2D/AnimationPlayer
 
@@ -33,6 +33,11 @@ func setPlayer(protag):
 func takeDamage(damage):
 	health -= damage
 	if health <= 0:
+		var XPGem = XP_GEM.instantiate()
+		XPGem.position = position
+		add_child((XPGem))
 		queue_free()
+		
+		
 
 

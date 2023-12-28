@@ -5,9 +5,11 @@ const KNOIFE = preload("res://scenes/knoife.tscn")
 @onready var weapon_pivot = $weaponPivot
 @onready var animation_player = $Sprite2D/AnimationPlayer
 @onready var sprite_2d = $Sprite2D
+const XP_GEM = preload("res://scenes/XPGem.tscn")
 
 var speed = 40
 var health = 100
+var xp = 1
 var hud = null
 var knoifes = []
 var orbitAngleOffset = 0
@@ -43,9 +45,10 @@ func _input(event):
 		sprite_2d.flip_h = false
 	if event.is_action_pressed("right"):
 		sprite_2d.flip_h = true
-		
 	if event.is_action_pressed("knoife"):
 		giveKnoife()
+
+		
 
 func takeDamage(damage):
 	health -= damage
@@ -71,4 +74,14 @@ func updateKnoifes():
 	for knoife in knoifes:
 		index += 1
 		knoife.setTargetPosition(Vector2(cos(spacing * index + orbitAngleOffset) * radius, sin(spacing * index + orbitAngleOffset) * radius))
+		
+		
+func XPAbsorb():
+	if get_tree().has_group("XPGems"):
+		var allGems = get_tree().get_nodes_in_group("XPGems")
+		for gem in allGems:
+			if global_position.distance_squared_to(gem.global_position) > 10:
+				print("ABSORB")		
+	pass
+	
 

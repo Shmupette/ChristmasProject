@@ -25,3 +25,15 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_ixvql")
 theme_override_font_sizes/font_size = 64
 text = "XX"
+
+[node name="XP" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -568.0
+offset_top = 532.0
+offset_right = -470.0
+offset_bottom = 610.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ixvql")
+theme_override_font_sizes/font_size = 64

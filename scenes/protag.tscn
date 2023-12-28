@@ -84,7 +84,7 @@ libraries = {
 shape = SubResource("RectangleShape2D_6tlnx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(20, 20)
+zoom = Vector2(8, 8)
 
 [node name="weaponPivot" type="Node2D" parent="."]
 
