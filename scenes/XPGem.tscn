@@ -7,10 +7,10 @@
 radius = 0.0
 
 [node name="XpGem" type="Area2D"]
-scale = Vector2(0.03, 0.03)
+scale = Vector2(0.04, 0.04)
 script = ExtResource("1_j2hcp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Blue" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("1_hreho")

@@ -19,7 +19,7 @@ func setPosition(target):
 func Absorb(target,delta):
 	position = position.move_toward(Vector2(target.position), delta * movementSpeed)
 	if global_position.distance_squared_to(target.global_position) < 1:
-		target.xp += XPAmount#
+		target.xp += XPAmount
 		queue_free()
 	else:
 		movementSpeed += 1

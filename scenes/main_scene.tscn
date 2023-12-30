@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c18n1w0ax0apu"]
+[gd_scene load_steps=6 format=3 uid="uid://c18n1w0ax0apu"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_o0syh"]
 [ext_resource type="Texture2D" uid="uid://4g1t7imkht3i" path="res://tiles/tiletest.png" id="2_4e156"]
-[ext_resource type="PackedScene" uid="uid://6kb8km6kbit5" path="res://scenes/XPGem.tscn" id="3_ay8e7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p41n1"]
 texture = ExtResource("2_4e156")
@@ -79,7 +78,6 @@ point_count = 5
 script = ExtResource("1_o0syh")
 
 [node name="mobSpawnTimer" type="Timer" parent="."]
-wait_time = 0.01
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -92,8 +90,5 @@ curve = SubResource("Curve2D_1s1nb")
 
 [node name="mobSpawnFollowPath" type="PathFollow2D" parent="mobSpawnPath"]
 position = Vector2(-257, -192)
-
-[node name="XpGem" parent="." instance=ExtResource("3_ay8e7")]
-position = Vector2(8, -6)
 
 [connection signal="timeout" from="mobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

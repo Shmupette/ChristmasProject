@@ -9,11 +9,13 @@ const XP_GEM = preload("res://scenes/XPGem.tscn")
 
 var speed = 40
 var health = 100
-var xp = 1
+var xp = 0
 var hud = null
 var knoifes = []
 var orbitAngleOffset = 0
 var XPAbsorbRange = 200
+var level = 1
+var xpRequired = 5
 
 func _ready():
 	hud = HUD.instantiate()
@@ -40,6 +42,7 @@ func _process(delta):
 	orbitAngleOffset = wrapf(orbitAngleOffset, -PI, PI)
 	if knoifes.size() > 0:
 		updateKnoifes()
+	levelManager()
 	
 
 func _input(event):
@@ -89,3 +92,9 @@ func XPAbsorb(delta):
 	pass
 	
 
+func levelManager():
+	if xp >= xpRequired:
+		level += 1
+		xpRequired *= 1.2
+		xp = 0
+		

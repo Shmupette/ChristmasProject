@@ -2,7 +2,9 @@ extends CanvasLayer
 
 var player = null
 @onready var progress_bar_health = $ProgressBar_Health
-@onready var xp = $XP
+@onready var progress_bar_xp = $ProgressBar_XP
+@onready var level = $Level
+
 
 func setPlayer(player):
 	self.player = player
@@ -18,11 +20,15 @@ func _process(delta):
 	if player != null:
 		updateHeath()
 	updateXP()
-	pass
+	updateLevel()
 
 func updateHeath():
 	progress_bar_health.value = player.health
 	
 func updateXP():
-	xp.text = str(player.xp)
+	progress_bar_xp.max_value = player.xpRequired
+	progress_bar_xp.value = player.xp
+	
+func updateLevel():
+	level.text = str(player.level)
 	
