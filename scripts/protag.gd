@@ -5,17 +5,19 @@ const KNOIFE = preload("res://scenes/knoife.tscn")
 @onready var weapon_pivot = $weaponPivot
 @onready var animation_player = $Sprite2D/AnimationPlayer
 @onready var sprite_2d = $Sprite2D
+const LEVEL_UP_HUD = preload("res://scenes/levelUpHUD.tscn")
 const XP_GEM = preload("res://scenes/XPGem.tscn")
 
 var speed = 40
 var health = 100
 var xp = 0
 var hud = null
+var leveluphud = null
 var knoifes = []
 var orbitAngleOffset = 0
 var XPAbsorbRange = 200
 var level = 1
-var xpRequired = 5
+var xpRequired = 2
 
 func _ready():
 	hud = HUD.instantiate()
@@ -97,4 +99,14 @@ func levelManager():
 		level += 1
 		xpRequired *= 1.2
 		xp = 0
+		levelUp()
+		
+func levelUp():
+	leveluphud = LEVEL_UP_HUD.instantiate()
+	leveluphud.setPlayer(self)
+	add_child(leveluphud)
+
+func pause(bools):
+	get_tree().paused = bools
+	
 		

@@ -10,6 +10,7 @@ var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	new_game()
 
 func new_game():
@@ -23,3 +24,9 @@ func _on_mob_spawn_timer_timeout() -> void:
 	mob_spawn_follow_path.progress_ratio = randf()
 	mob.position = mob_spawn_follow_path.position
 	add_child(mob)
+
+
+		
+	
+	
+	
