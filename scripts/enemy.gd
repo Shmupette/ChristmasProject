@@ -3,7 +3,7 @@ class_name Enemy
 const XP_GEM = preload("res://scenes/XPGem.tscn")
 @onready var attacktimer = $attacktimer
 @onready var animation_player = $Sprite2D/AnimationPlayer
-
+var mainScene = preload("res://scenes/main_scene.tscn")
 var protag = null
 var movementSpeed = 10
 var health = 10
@@ -35,7 +35,7 @@ func takeDamage(damage):
 	if health <= 0:
 		var XPGem = XP_GEM.instantiate()
 		XPGem.position = position
-		add_child((XPGem))
+		self.get_parent().add_child((XPGem))
 		queue_free()
 		
 		

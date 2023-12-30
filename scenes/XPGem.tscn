@@ -7,6 +7,7 @@
 radius = 0.0
 
 [node name="XpGem" type="Area2D"]
+scale = Vector2(0.03, 0.03)
 script = ExtResource("1_j2hcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

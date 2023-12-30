@@ -13,6 +13,7 @@ var xp = 1
 var hud = null
 var knoifes = []
 var orbitAngleOffset = 0
+var XPAbsorbRange = 200
 
 func _ready():
 	hud = HUD.instantiate()
@@ -31,6 +32,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	XPAbsorb(delta)
 	
 func _process(delta):
 	weapon_pivot.rotate(0.02)
@@ -76,12 +78,14 @@ func updateKnoifes():
 		knoife.setTargetPosition(Vector2(cos(spacing * index + orbitAngleOffset) * radius, sin(spacing * index + orbitAngleOffset) * radius))
 		
 		
-func XPAbsorb():
+func XPAbsorb(delta):
 	if get_tree().has_group("XPGems"):
 		var allGems = get_tree().get_nodes_in_group("XPGems")
 		for gem in allGems:
-			if global_position.distance_squared_to(gem.global_position) > 10:
-				print("ABSORB")		
+			if global_position.distance_squared_to(gem.global_position) < XPAbsorbRange:
+				gem.Absorb(self,delta)
+			elif global_position.distance_squared_to(gem.global_position) > XPAbsorbRange:
+				gem.movementSpeed  = gem.baseMovementSpeed
 	pass
 	
 
